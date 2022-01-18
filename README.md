@@ -1,7 +1,7 @@
 # Supply-Chain-dAPP
 <h1 align="center">
   <br>
-  <a><img src="https://github.com/rishav4101/eth-supplychain-dapp/blob/main/images/logo.png" width="200"></a>
+  <a><img src="Images/ethereum-name-service-dapp.png" width="200"></a>
   <br>  
   Supply-Chain-Dapp
   <br>
