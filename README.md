@@ -48,7 +48,7 @@ A blockchain supply chain can help participants record price, date, location, qu
 </p>
 
 ## Architecture
-The smart contract is being written with Solidity which is then compiled, migrated and deployed using Truffle.js on the local blockchain network created using Ganache-cli. Testing of contract is performed by writing test code in java script by adding participants and products,eployed using Truffle.js on the local blockchain network created using Ganache-cli. 
+The smart contract is being written with Solidity which is then compiled, migrated and deployed using Truffle.js on the local blockchain network created using Ganache. Testing of contract is performed by writing test code in java script by adding participants and products,deployed using Truffle.js on the local blockchain network created using Ganache. 
 
 ## Flow
 <p align="centre">  
@@ -62,38 +62,36 @@ The smart contract is being written with Solidity which is then compiled, migrat
 
 
 ## Installation and Setup
-Prerequisites : `npm, git, docker(optional)`
+Prerequisites : `npm, git, truffle suite, Ganache, VS Code`
 
 
 Install dependencies
 ```Bash
-npm i
+truffle init
+npm install
+git init
 ```
-Install ganache-cli
+Install ganache
 ```Bash
-npm i -g ganache-cli
+Can be installed externally.
 ```
-Configure ganache-cli for 10 accounts and extend gasLimit to 6721975000 and beyond, so as to have enough gas for migrating the smart contracts and a data flow for the prototype.  
-```Bash
-ganache-cli --accounts 10 --gasLimit 6721975000
-```
+Configure ganache for 10 accounts and extend gasLimit to 6721975000 and beyond, so as to have enough gas for migrating the smart contracts and a data flow for the prototype.  
 
 Install all packages in the package.json file
 ```Bash
 npm i
+>> change the local port number.
 ```
 
 Run the app
 ```Bash
-npm start
-truffle init
 truffle deploy
-
 ```
 Test the app
-```truffle console
-Add command lines from test.txt file in command terminal.
-Replace addresses in test.txt with addresses from your local ganache blockchain.
+```
+truffle console
+>>Add command lines from test.txt file in command terminal in specified order.
+>>Replace addresses in test.txt with addresses from your local ganache blockchain.
 ```
 The app gets hosted by default at port 7545.
 
