@@ -52,7 +52,7 @@ The smart contract is being written with Solidity which is then compiled, migrat
 
 ## Flow
 <p align="centre">  
-    <img src="Images/workflow.png" width="300">  
+    <img src="Images/workflow.png" width="1000">  
 </p>
 
 ## Working
