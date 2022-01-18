@@ -1,0 +1,62 @@
+Accounts:
+A-0: 0xBC20d7C76c01665BB752f57Be9503eef44A25638 // Supplier
+B-1: 0x4477739C54dBb7e2A6684B2d0BE8d73D99625687 // Manufacturer
+C-2: 0x225bbD23db8f7947E1d8C46104224bEd04Fc4FfA // Quality Assurance
+D-3: 0x6373788CB026100eCFFd31b8DF12E1443d3310D1 // Shipping-Warehouse
+E-4: 0xd8BAeF59BeBDA5592556D8830B5946273AA2790d // Warehouse
+F-5: 0x085B27818e8Cdf500B310D1fee65089a32b4D14c // Customer
+
+
+supplychain.deployed().then(function(instance) {return instance });
+
+// Create participants 
+supplychain.deployed().then(function(instance) {return instance.addParticipant("A","passA","0xBC20d7C76c01665BB752f57Be9503eef44A25638","Supplier") });
+supplychain.deployed().then(function(instance) {return instance.addParticipant("B","passB","0x4477739C54dBb7e2A6684B2d0BE8d73D99625687","Manufacturer") });
+supplychain.deployed().then(function(instance) {return instance.addParticipant("C","passC","0x225bbD23db8f7947E1d8C46104224bEd04Fc4FfA","Quality Assurance") });
+supplychain.deployed().then(function(instance) {return instance.addParticipant("D","passD","0x6373788CB026100eCFFd31b8DF12E1443d3310D1","Shipping-Warehouse") });
+supplychain.deployed().then(function(instance) {return instance.addParticipant("E","passE","0xd8BAeF59BeBDA5592556D8830B5946273AA2790d","Warehouse") });
+supplychain.deployed().then(function(instance) {return instance.addParticipant("F","passF","0x085B27818e8Cdf500B310D1fee65089a32b4D14c","Customer") });
+
+
+// Get participant details
+supplychain.deployed().then(function(instance) {return instance.getParticipant(0)});
+supplychain.deployed().then(function(instance) {return instance.getParticipant(1)});
+supplychain.deployed().then(function(instance) {return instance.getParticipant(2)});
+supplychain.deployed().then(function(instance) {return instance.getParticipant(3)});
+supplychain.deployed().then(function(instance) {return instance.getParticipant(4)});
+supplychain.deployed().then(function(instance) {return instance.getParticipant(5)});
+
+
+// Create products.
+supplychain.deployed().then(function(instance) {return instance.addProduct(0, "ABC", "100", "123", 11) });
+
+// Get product details
+supplychain.deployed().then(function(instance) {return instance.getProduct(0) });
+
+
+// Move products along supply chain: Supplier=> Manufacturer=> Quality Assurance=> Shipping-Warehouse=> Warehouse=> Customer.
+supplychain.deployed().then(function(instance) {return instance.newOwner(0, 1, 0, {from: "0xBC20d7C76c01665BB752f57Be9503eef44A25638"}) });
+supplychain.deployed().then(function(instance) {return instance.newOwner(1, 2, 0, {from: "0x4477739C54dBb7e2A6684B2d0BE8d73D99625687"}) });
+supplychain.deployed().then(function(instance) {return instance.newOwner(2, 3, 0, {from: "0x225bbD23db8f7947E1d8C46104224bEd04Fc4FfA"}) });
+supplychain.deployed().then(function(instance) {return instance.newOwner(3, 4, 0, {from: "0x6373788CB026100eCFFd31b8DF12E1443d3310D1"}) });
+supplychain.deployed().then(function(instance) {return instance.newOwner(4, 5, 0, {from: "0xd8BAeF59BeBDA5592556D8830B5946273AA2790d"}) });
+
+
+supplychain.deployed().then(function(instance) {return instance.getProvenance(0) });
+
+//
+//
+//
+
+function addParticipant(string name, string pass, address pAdd, string pType) public returns (uint)
+function getParticipant(uint p_id) public view returns (string,address,string)
+function addProduct(uint own_id, string modelNumber, string partNumber, string serialNumber, uint productCost) public returns (uint)
+function getProduct(uint prod_id) public view returns (string,string,string,uint,address,uint)
+
+function newOwner(uint user1_id ,uint user2_id, uint prod_id) onlyOwner(prod_id) public returns(bool)
+/* function getProductRegistrationHistory(uint prod_id)  public  returns (registration[]) */
+function getOwnership(uint reg_id)  public view returns (uint,uint,address,uint)
+/* function getRegistraionList(uint prod_id) public returns (uint) */
+function authenticateParticipant(uint uid ,string uname ,string pass ,string utype) public view returns (bool)
+
+
