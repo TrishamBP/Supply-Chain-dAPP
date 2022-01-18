@@ -80,7 +80,7 @@ Configure ganache for 10 accounts and extend gasLimit to 6721975000 and beyond, 
 Install all packages in the package.json file
 ```Bash
 npm i
->>change the port number and uncomment code in json file according to testnet in this case ganache.
+>>Change the port number and uncomment code in json file according to testnet in this case ganache.
 ```
 
 Run the app
