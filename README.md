@@ -3,7 +3,7 @@
   <br>
   <a><img src="Images/ethereum-name-service-dapp.png" width="1000"></a>
   <br>  
-  Supply-Chain-Dapp
+  Supply-Chain-Dapp.
   <br>
 </h1>
 
